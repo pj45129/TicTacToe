@@ -1,0 +1,1584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" style="-fx-background-color: #fff9cf;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+      <HBox layoutY="599.0" prefHeight="50.0" prefWidth="600.0" fx:id="oneHBox">
+         <children>
+              <Button mnemonicParsing="false" onAction="#btnNewGame" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="New game">
+                  <font>
+                      <Font name="Stencil" size="20.0" />
+                  </font>
+              </Button>
+              <Button mnemonicParsing="false" onAction="#btnExitGame" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="Quit">
+                  <font>
+                      <Font name="Stencil" size="20.0" />
+                  </font>
+              </Button>
+         </children>
+      </HBox>
+      <HBox layoutY="599.0" prefHeight="50.0" prefWidth="600.0" fx:id="twoHBox" visible="false">
+         <children>
+            <Button mnemonicParsing="false" onAction="#btnPlayer" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="Player">
+               <font>
+                  <Font name="Stencil" size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#btnMultiplayer" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="Multiplayer">
+               <font>
+                  <Font name="Stencil" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutY="599.0" prefHeight="50.0" prefWidth="600.0" fx:id="threeHBox" visible="false">
+         <children>
+            <Button mnemonicParsing="false" onAction="#btn3x3" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="3x3 win-3">
+               <font>
+                  <Font name="Stencil" size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#btn5x5" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="5x5 win-4">
+               <font>
+                  <Font name="Stencil" size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#btn10x10" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="10x10 win-5">
+               <font>
+                  <Font name="Stencil" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <AnchorPane prefHeight="650.0" prefWidth="600.0" fx:id="oneAnchorPane" visible="false">
+         <children>
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="200.0" onMouseClicked="#handleSquareOneClick" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="200.0" layoutX="200.0" onMouseClicked="#handleSquareTwoClick" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="200.0" layoutX="400.0" onMouseClicked="#handleSquareThreeClick" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="200.0" layoutY="200.0" onMouseClicked="#handleSquareForeClick" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="200.0" layoutX="200.0" layoutY="200.0" onMouseClicked="#handleSquareFiveClick" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="200.0" layoutX="400.0" layoutY="200.0" onMouseClicked="#handleSquareSixClick" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="200.0" layoutY="400.0" onMouseClicked="#handleSquareSevenClick" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="200.0" layoutX="200.0" layoutY="400.0" onMouseClicked="#handleSquareEightClick" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="200.0" layoutX="400.0" layoutY="400.0" onMouseClicked="#handleSquareNineClick" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <ImageView fx:id="circleOne" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circleTwo" fitHeight="200.0" fitWidth="200.0" layoutX="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circleThree" fitHeight="200.0" fitWidth="200.0" layoutX="400.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circleFour" fitHeight="200.0" fitWidth="200.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circleFive" fitHeight="200.0" fitWidth="200.0" layoutX="200.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circleSix" fitHeight="200.0" fitWidth="200.0" layoutX="400.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circleSeven" fitHeight="200.0" fitWidth="200.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circleEight" fitHeight="200.0" fitWidth="200.0" layoutX="200.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circleNine" fitHeight="200.0" fitWidth="200.0" layoutX="400.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xOne">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="200.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTwo">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="400.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xThree">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xFour">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="200.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xFive">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="400.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xSix">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xSeven">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="200.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xEight">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="400.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xNine">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Button layoutY="600.0" mnemonicParsing="false" onAction="#btnNewGame" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="New game">
+               <font>
+                  <Font name="Stencil" size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="300.0" layoutY="600.0" mnemonicParsing="false" onAction="#btnExitGame" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="Quit">
+               <font>
+                  <Font name="Stencil" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="650.0" prefWidth="600.0" fx:id="twoAnchorPane" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" onMouseClicked="#handleSquare1Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle1" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x1">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="120.0" onMouseClicked="#handleSquare2Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle2" fitHeight="120.0" fitWidth="120.0" layoutX="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x2">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="240.0" onMouseClicked="#handleSquare3Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle3" fitHeight="120.0" fitWidth="120.0" layoutX="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x3">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="360.0" onMouseClicked="#handleSquare4Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle4" fitHeight="120.0" fitWidth="120.0" layoutX="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x4">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="480.0" onMouseClicked="#handleSquare5Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle5" fitHeight="120.0" fitWidth="120.0" layoutX="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x5">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutY="120.0" onMouseClicked="#handleSquare6Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle6" fitHeight="120.0" fitWidth="120.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x6">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="120.0" layoutY="120.0" onMouseClicked="#handleSquare7Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle7" fitHeight="120.0" fitWidth="120.0" layoutX="120.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="120.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x7">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="240.0" layoutY="120.0" onMouseClicked="#handleSquare8Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle8" fitHeight="120.0" fitWidth="120.0" layoutX="240.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="240.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x8">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="360.0" layoutY="120.0" onMouseClicked="#handleSquare9Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle9" fitHeight="120.0" fitWidth="120.0" layoutX="360.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="360.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x9">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="480.0" layoutY="120.0" onMouseClicked="#handleSquare10Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle10" fitHeight="120.0" fitWidth="120.0" layoutX="480.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="480.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x10">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutY="240.0" onMouseClicked="#handleSquare11Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle11" fitHeight="120.0" fitWidth="120.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x11">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="120.0" layoutY="240.0" onMouseClicked="#handleSquare12Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle12" fitHeight="120.0" fitWidth="120.0" layoutX="120.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="120.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x12">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="240.0" layoutY="240.0" onMouseClicked="#handleSquare13Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle13" fitHeight="120.0" fitWidth="120.0" layoutX="240.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="240.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x13">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="360.0" layoutY="240.0" onMouseClicked="#handleSquare14Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle14" fitHeight="120.0" fitWidth="120.0" layoutX="360.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="360.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x14">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="480.0" layoutY="240.0" onMouseClicked="#handleSquare15Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle15" fitHeight="120.0" fitWidth="120.0" layoutX="480.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="480.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x15">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutY="360.0" onMouseClicked="#handleSquare16Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle16" fitHeight="120.0" fitWidth="120.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x16">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="120.0" layoutY="360.0" onMouseClicked="#handleSquare17Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle17" fitHeight="120.0" fitWidth="120.0" layoutX="120.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="120.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x17">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="240.0" layoutY="360.0" onMouseClicked="#handleSquare18Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle18" fitHeight="120.0" fitWidth="120.0" layoutX="240.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="240.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x18">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="360.0" layoutY="360.0" onMouseClicked="#handleSquare19Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle19" fitHeight="120.0" fitWidth="120.0" layoutX="360.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="360.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x19">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="480.0" layoutY="360.0" onMouseClicked="#handleSquare20Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle20" fitHeight="120.0" fitWidth="120.0" layoutX="480.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="480.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x20">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutY="480.0" onMouseClicked="#handleSquare21Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle21" fitHeight="120.0" fitWidth="120.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x21">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="120.0" layoutY="480.0" onMouseClicked="#handleSquare22Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle22" fitHeight="120.0" fitWidth="120.0" layoutX="120.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="120.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x22">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="240.0" layoutY="480.0" onMouseClicked="#handleSquare23Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle23" fitHeight="120.0" fitWidth="120.0" layoutX="240.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="240.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x23">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="360.0" layoutY="480.0" onMouseClicked="#handleSquare24Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle24" fitHeight="120.0" fitWidth="120.0" layoutX="360.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="360.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x24">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="120.0" layoutX="480.0" layoutY="480.0" onMouseClicked="#handleSquare25Click" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <ImageView fx:id="circle25" fitHeight="120.0" fitWidth="120.0" layoutX="480.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="480.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="x25">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Button layoutY="600.0" mnemonicParsing="false" onAction="#btnNewGame" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="New game">
+               <font>
+                  <Font name="Stencil" size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="300.0" layoutY="600.0" mnemonicParsing="false" onAction="#btnExitGame" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="Quit">
+               <font>
+                  <Font name="Stencil" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="650.0" prefWidth="600.0" fx:id="threeAnchorPane" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" onMouseClicked="#handleSquareTen1Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen1">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="60.0" onMouseClicked="#handleSquareTen2Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen2" fitHeight="60.0" fitWidth="60.0" layoutX="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="60.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen2">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="120.0" onMouseClicked="#handleSquareTen3Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen3" fitHeight="60.0" fitWidth="60.0" layoutX="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen3">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="180.0" onMouseClicked="#handleSquareTen4Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen4" fitHeight="60.0" fitWidth="60.0" layoutX="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="180.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen4">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="240.0" onMouseClicked="#handleSquareTen5Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen5" fitHeight="60.0" fitWidth="60.0" layoutX="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen5">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="300.0" onMouseClicked="#handleSquareTen6Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen6" fitHeight="60.0" fitWidth="60.0" layoutX="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="300.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen6">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="360.0" onMouseClicked="#handleSquareTen7Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen7" fitHeight="60.0" fitWidth="60.0" layoutX="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen7">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="420.0" onMouseClicked="#handleSquareTen8Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen8" fitHeight="60.0" fitWidth="60.0" layoutX="420.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="420.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen8">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="480.0" onMouseClicked="#handleSquareTen9Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen9" fitHeight="60.0" fitWidth="60.0" layoutX="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen9">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="540.0" onMouseClicked="#handleSquareTen10Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen10" fitHeight="60.0" fitWidth="60.0" layoutX="540.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="540.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen10">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutY="60.0" onMouseClicked="#handleSquareTen11Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen11" fitHeight="60.0" fitWidth="60.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen11">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="60.0" layoutY="60.0" onMouseClicked="#handleSquareTen12Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen12" fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen12">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="120.0" layoutY="60.0" onMouseClicked="#handleSquareTen13Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen13" fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen13">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="180.0" layoutY="60.0" onMouseClicked="#handleSquareTen14Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen14" fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen14">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="240.0" layoutY="60.0" onMouseClicked="#handleSquareTen15Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen15" fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen15">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="300.0" layoutY="60.0" onMouseClicked="#handleSquareTen16Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen16" fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen16">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="360.0" layoutY="60.0" onMouseClicked="#handleSquareTen17Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen17" fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen17">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="420.0" layoutY="60.0" onMouseClicked="#handleSquareTen18Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen18" fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen18">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="480.0" layoutY="60.0" onMouseClicked="#handleSquareTen19Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen19" fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen19">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="540.0" layoutY="60.0" onMouseClicked="#handleSquareTen20Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen20" fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen20">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutY="120.0" onMouseClicked="#handleSquareTen21Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen21" fitHeight="60.0" fitWidth="60.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen21">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="60.0" layoutY="120.0" onMouseClicked="#handleSquareTen22Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen22" fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen22">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="120.0" layoutY="120.0" onMouseClicked="#handleSquareTen23Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen23" fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen23">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="180.0" layoutY="120.0" onMouseClicked="#handleSquareTen24Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen24" fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen24">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="240.0" layoutY="120.0" onMouseClicked="#handleSquareTen25Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen25" fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen25">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="300.0" layoutY="120.0" onMouseClicked="#handleSquareTen26Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen26" fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen26">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="360.0" layoutY="120.0" onMouseClicked="#handleSquareTen27Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen27" fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen27">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="420.0" layoutY="120.0" onMouseClicked="#handleSquareTen28Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen28" fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen28">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="480.0" layoutY="120.0" onMouseClicked="#handleSquareTen29Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen29" fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen29">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="540.0" layoutY="120.0" onMouseClicked="#handleSquareTen30Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen30" fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen30">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutY="180.0" onMouseClicked="#handleSquareTen31Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen31" fitHeight="60.0" fitWidth="60.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen31">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="60.0" layoutY="180.0" onMouseClicked="#handleSquareTen32Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen32" fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen32">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="120.0" layoutY="180.0" onMouseClicked="#handleSquareTen33Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen33" fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen33">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="180.0" layoutY="180.0" onMouseClicked="#handleSquareTen34Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen34" fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen34">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="240.0" layoutY="180.0" onMouseClicked="#handleSquareTen35Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen35" fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen35">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="300.0" layoutY="180.0" onMouseClicked="#handleSquareTen36Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen36" fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen36">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="360.0" layoutY="180.0" onMouseClicked="#handleSquareTen37Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen37" fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen37">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="420.0" layoutY="180.0" onMouseClicked="#handleSquareTen38Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen38" fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen38">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="480.0" layoutY="180.0" onMouseClicked="#handleSquareTen39Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen39" fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen39">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="540.0" layoutY="180.0" onMouseClicked="#handleSquareTen40Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen40" fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen40">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="0.0" layoutY="240.0" onMouseClicked="#handleSquareTen41Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen41" fitHeight="60.0" fitWidth="60.0" layoutX="0.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="0.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen41">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="60.0" layoutY="240.0" onMouseClicked="#handleSquareTen42Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen42" fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen42">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="120.0" layoutY="240.0" onMouseClicked="#handleSquareTen43Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen43" fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen43">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="180.0" layoutY="240.0" onMouseClicked="#handleSquareTen44Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen44" fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen44">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="240.0" layoutY="240.0" onMouseClicked="#handleSquareTen45Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen45" fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen45">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="300.0" layoutY="240.0" onMouseClicked="#handleSquareTen46Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen46" fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen46">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="360.0" layoutY="240.0" onMouseClicked="#handleSquareTen47Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen47" fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen47">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="420.0" layoutY="240.0" onMouseClicked="#handleSquareTen48Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen48" fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen48">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="480.0" layoutY="240.0" onMouseClicked="#handleSquareTen49Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen49" fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen49">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="540.0" layoutY="240.0" onMouseClicked="#handleSquareTen50Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen50" fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen50">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="0.0" layoutY="300.0" onMouseClicked="#handleSquareTen51Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen51" fitHeight="60.0" fitWidth="60.0" layoutX="0.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="0.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen51">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="60.0" layoutY="300.0" onMouseClicked="#handleSquareTen52Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen52" fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen52">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="120.0" layoutY="300.0" onMouseClicked="#handleSquareTen53Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen53" fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen53">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="180.0" layoutY="300.0" onMouseClicked="#handleSquareTen54Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen54" fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen54">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="240.0" layoutY="300.0" onMouseClicked="#handleSquareTen55Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen55" fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen55">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="300.0" layoutY="300.0" onMouseClicked="#handleSquareTen56Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen56" fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen56">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="360.0" layoutY="300.0" onMouseClicked="#handleSquareTen57Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen57" fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen57">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="420.0" layoutY="300.0" onMouseClicked="#handleSquareTen58Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen58" fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen58">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="480.0" layoutY="300.0" onMouseClicked="#handleSquareTen59Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen59" fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen59">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="540.0" layoutY="300.0" onMouseClicked="#handleSquareTen60Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen60" fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen60">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="0.0" layoutY="360.0" onMouseClicked="#handleSquareTen61Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen61" fitHeight="60.0" fitWidth="60.0" layoutX="0.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="0.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen61">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="60.0" layoutY="360.0" onMouseClicked="#handleSquareTen62Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen62" fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen62">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="120.0" layoutY="360.0" onMouseClicked="#handleSquareTen63Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen63" fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen63">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="180.0" layoutY="360.0" onMouseClicked="#handleSquareTen64Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen64" fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen64">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="240.0" layoutY="360.0" onMouseClicked="#handleSquareTen65Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen65" fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen65">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="300.0" layoutY="360.0" onMouseClicked="#handleSquareTen66Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen66" fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen66">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="360.0" layoutY="360.0" onMouseClicked="#handleSquareTen67Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen67" fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen67">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="420.0" layoutY="360.0" onMouseClicked="#handleSquareTen68Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen68" fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen68">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="480.0" layoutY="360.0" onMouseClicked="#handleSquareTen69Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen69" fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen69">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="540.0" layoutY="360.0" onMouseClicked="#handleSquareTen70Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen70" fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen70">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="0.0" layoutY="420.0" onMouseClicked="#handleSquareTen71Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen71" fitHeight="60.0" fitWidth="60.0" layoutX="0.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="0.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen71">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="60.0" layoutY="420.0" onMouseClicked="#handleSquareTen72Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen72" fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen72">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="120.0" layoutY="420.0" onMouseClicked="#handleSquareTen73Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen73" fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen73">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="180.0" layoutY="420.0" onMouseClicked="#handleSquareTen74Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen74" fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen74">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="240.0" layoutY="420.0" onMouseClicked="#handleSquareTen75Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen75" fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen75">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="300.0" layoutY="420.0" onMouseClicked="#handleSquareTen76Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen76" fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen76">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="360.0" layoutY="420.0" onMouseClicked="#handleSquareTen77Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen77" fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen77">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="420.0" layoutY="420.0" onMouseClicked="#handleSquareTen78Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen78" fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen78">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="480.0" layoutY="420.0" onMouseClicked="#handleSquareTen79Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen79" fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen79">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="540.0" layoutY="420.0" onMouseClicked="#handleSquareTen80Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen80" fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen80">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="0.0" layoutY="480.0" onMouseClicked="#handleSquareTen81Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen81" fitHeight="60.0" fitWidth="60.0" layoutX="0.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="0.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen81">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="60.0" layoutY="480.0" onMouseClicked="#handleSquareTen82Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen82" fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen82">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="120.0" layoutY="480.0" onMouseClicked="#handleSquareTen83Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen83" fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen83">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="180.0" layoutY="480.0" onMouseClicked="#handleSquareTen84Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen84" fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen84">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="240.0" layoutY="480.0" onMouseClicked="#handleSquareTen85Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen85" fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen85">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="300.0" layoutY="480.0" onMouseClicked="#handleSquareTen86Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen86" fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen86">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="360.0" layoutY="480.0" onMouseClicked="#handleSquareTen87Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen87" fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen87">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="420.0" layoutY="480.0" onMouseClicked="#handleSquareTen88Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen88" fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen88">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="480.0" layoutY="480.0" onMouseClicked="#handleSquareTen89Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen89" fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen89">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="540.0" layoutY="480.0" onMouseClicked="#handleSquareTen90Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen90" fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen90">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="0.0" layoutY="540.0" onMouseClicked="#handleSquareTen91Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen91" fitHeight="60.0" fitWidth="60.0" layoutX="0.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="0.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen91">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="60.0" layoutY="540.0" onMouseClicked="#handleSquareTen92Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen92" fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="60.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen92">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="120.0" layoutY="540.0" onMouseClicked="#handleSquareTen93Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen93" fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="120.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen93">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="180.0" layoutY="540.0" onMouseClicked="#handleSquareTen94Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen94" fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen94">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="240.0" layoutY="540.0" onMouseClicked="#handleSquareTen95Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen95" fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="240.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen95">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="300.0" layoutY="540.0" onMouseClicked="#handleSquareTen96Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen96" fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="300.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen96">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="360.0" layoutY="540.0" onMouseClicked="#handleSquareTen97Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen97" fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="360.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen97">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="420.0" layoutY="540.0" onMouseClicked="#handleSquareTen98Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen98" fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="420.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen98">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="480.0" layoutY="540.0" onMouseClicked="#handleSquareTen99Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen99" fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="480.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen99">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff9cf" height="60.0" layoutX="540.0" layoutY="540.0" onMouseClicked="#handleSquareTen100Click" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <ImageView fx:id="circleTen100" fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/o.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="540.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="xTen100">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <Button layoutY="600.0" mnemonicParsing="false" onAction="#btnNewGame" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="New game">
+               <font>
+                  <Font name="Stencil" size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="300.0" layoutY="600.0" mnemonicParsing="false" onAction="#btnExitGame" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #3e786a; -fx-border-color: black;" text="Quit">
+               <font>
+                  <Font name="Stencil" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+        <Label fx:id="lblTextVictory" alignment="CENTER" contentDisplay="CENTER" layoutY="218.0" prefHeight="121.0" prefWidth="600.0" textFill="#c79c00" visible="false">
+            <font>
+                <Font name="Stencil" size="132.0" />
+            </font>
+      </Label>
+        <ImageView fx:id="imgWin" fitHeight="599.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+    </children>
+</AnchorPane>
